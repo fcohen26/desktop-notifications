@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
          //console.log(registration.active);
         registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
       }
-        registration.active.onclick = function(event) {
+        registration.active.onnotificationclick = function(event) {
           console.log('On notification click: ', event.notification.tag);
           var messageId = event.notification.data;
         

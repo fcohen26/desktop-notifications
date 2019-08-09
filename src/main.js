@@ -10,10 +10,10 @@ window.addEventListener('load', function () {
             Notification.permission = status;
           }
         });
-        if (window.Notification && Notification.permission === "granted") {
-          //registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-          registration.showNotification("hi");
-        }
+      }
+      if (window.Notification && Notification.permission === "granted") {
+        //registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+        registration.showNotification("hi");
       }
 
     }, function(error) {

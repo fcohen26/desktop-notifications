@@ -22,6 +22,7 @@ self.addEventListener('install', function(event) {
 //   };
 self.addEventListener('notificationclick', function(event) {
     console.dir("hi notification clicked");
+    console.dir(event);
     clients.openWindow('http://www.facebook.com');
     notification.close();
     console.log("notification click");
@@ -33,11 +34,11 @@ self.addEventListener('notificationclick', function(event) {
     switch (event.action) {
         case 'accept-action':
             clients.openWindow('www.google.com');
-            console.log("accept action clicked");
+            console.dir("accept action clicked");
             break;
         case 'reject-action':
             clients.openWindow('www.google.com');
-            console.log('reject action clicked');
+            console.dir('reject action clicked');
             break;
     }
 });

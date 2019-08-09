@@ -33,12 +33,12 @@ self.addEventListener('notificationclick', function(event) {
     }
     if (event.action === 'accept-action') {
         console.dir('accept action clicked');
-        clients.openWindow('www.google.com');
+        clients.openWindow('http://www.google.com');
         event.notification.close();
     }
     if (event.action === 'reject-action') {
         console.dir('reject action clicked')
-        clients.openWindow('www.facebok.com');
+        clients.openWindow('http://www.facebok.com');
         event.notification.close();
     }
 });

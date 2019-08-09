@@ -35,19 +35,20 @@ window.addEventListener('load', function () {
             registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
             console.log(registration.active);
           }
-            registration.active.onnotificationclick = function(event) {
-              console.log('On notification click: ', event.notification.tag);
-              var messageId = event.notification.data;
+          console.log(registration.getNotifications()[0]);
+            // registration.active.addEventListener('notificationclick'), function(event) {
+            //   console.log('On notification click: ', event.notification.tag);
+            //   var messageId = event.notification.data;
             
-              event.notification.close();
+            //   event.notification.close();
             
-              if (event.action === 'accept-action') {
-                console.log("accept clicked");
-              }
-              else if (event.action === 'reject-action') {
-                console.log("reject clicked")
-              }
-            };
+            //   if (event.action === 'accept-action') {
+            //     console.log("accept clicked");
+            //   }
+            //   else if (event.action === 'reject-action') {
+            //     console.log("reject clicked")
+            //   }
+            // };
             //registration.showNotification("hi");
     
         }, function(error) {

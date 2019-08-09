@@ -33,38 +33,38 @@ window.addEventListener('load', function () {
             //subscribeUserToPush();
              //console.log(registration.active);
             registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-            registration.getNotifications().then(function(notifications) {
-              notifications[0].onclick = function(event) {
-                  console.log("here");
-                  event.preventDefault(); // prevent the browser from focusing the Notification's tab
-                  //parent.focus();
-                  window.focus();
-                  this.close();
-                  if (event.action === 'accept-action') {
-                    console.log("accept clicked");
-                  }
-                  else if (event.action === 'reject-action') {
-                    console.log("reject clicked")
-                  }
-                }
-                console.log(notifications[0]);
+            // registration.getNotifications().then(function(notifications) {
+            //   notifications[0].onclick = function(event) {
+            //       console.log("here");
+            //       event.preventDefault(); // prevent the browser from focusing the Notification's tab
+            //       //parent.focus();
+            //       window.focus();
+            //       this.close();
+            //       if (event.action === 'accept-action') {
+            //         console.log("accept clicked");
+            //       }
+            //       else if (event.action === 'reject-action') {
+            //         console.log("reject clicked")
+            //       }
+            //     }
+            //     console.log(notifications[0]);
 
-            })
-
+            // })
+            registration.active.addEventListener('notificationclick'), function(event) {
+              console.log('On notification click: ', event.notification.tag);
+              var messageId = event.notification.data;
+            
+              event.notification.close();
+            
+              if (event.action === 'accept-action') {
+                console.log("accept clicked");
+              }
+              else if (event.action === 'reject-action') {
+                console.log("reject clicked")
+              }
+            };
+            console.log(registration.active);
           }
-            // registration.active.addEventListener('notificationclick'), function(event) {
-            //   console.log('On notification click: ', event.notification.tag);
-            //   var messageId = event.notification.data;
-            
-            //   event.notification.close();
-            
-            //   if (event.action === 'accept-action') {
-            //     console.log("accept clicked");
-            //   }
-            //   else if (event.action === 'reject-action') {
-            //     console.log("reject clicked")
-            //   }
-            // };
             //registration.showNotification("hi");
     
         }, function(error) {

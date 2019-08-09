@@ -1,4 +1,4 @@
-self.addEventListener('activate', function(event) {
+self.addEventListener('install', function(event) {
     console.log('hi from service worker');
 })
 // console.log('hi from service worker');

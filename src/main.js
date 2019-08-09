@@ -1,7 +1,6 @@
 window.addEventListener('load', function () {
-  
   if ('serviceWorker' in navigator) {
-    this.navigator.serviceWorker.register('/src/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/src/sw.js').then(function(registration) {
       console.log("service worker registration succeeded: ", registration);
       Notification.requestPermission();
       if (window.Notification && Notification.permission !== "granted") {
@@ -16,6 +15,7 @@ window.addEventListener('load', function () {
         //subscribeUserToPush();
          //console.log(registration.active);
         registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+      }
         registration.active.onnotificationclick = function(event) {
           console.log('On notification click: ', event.notification.tag);
           var messageId = event.notification.data;
@@ -29,7 +29,6 @@ window.addEventListener('load', function () {
             console.log("reject clicked")
           }
         };
-      }
         //registration.showNotification("hi");
 
     }, function(error) {
@@ -110,7 +109,8 @@ function subscribeUserToPush() {
   //     }
   //   });
   // }
-  // var button = document.getElementsByTagName('button')[0];
+
+//   var button = document.getElementsByTagName('button')[0];
 
 //   button.addEventListener('click', function () {
 //     // If the user agreed to get notified

@@ -31,15 +31,11 @@ self.addEventListener('notificationclick', function(event) {
         console.dir('Notification click');
         return;
     }
-    switch (event.action) {
-        case 'accept-action':
-            clients.openWindow('www.google.com');
-            console.dir("accept action clicked");
-            break;
-        case 'reject-action':
-            clients.openWindow('www.google.com');
-            console.dir('reject action clicked');
-            break;
+    if (event.action === 'accept-action') {
+        clients.openWindow('www.google.com');
+    }
+    if (event.action === 'reject-action') {
+        clients.openWindow('www.facebok.com');
     }
 });
 

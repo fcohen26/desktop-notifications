@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
 
     button.addEventListener('click', function () {
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/src/sw.js', {scope: './'}).then(function(registration) {
+        navigator.serviceWorker.register('/src/sw.js').then(function(registration) {
           
         if(registration.installing) {
     
@@ -16,6 +16,7 @@ window.addEventListener('load', function () {
         } else if(registration.active) {
     
           console.log('Service worker active');
+          console.log(registration.scope);
     
         }
           console.log("service worker registration succeeded: ", registration);

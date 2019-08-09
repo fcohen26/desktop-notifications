@@ -32,7 +32,8 @@ window.addEventListener('load', function () {
           if (window.Notification && Notification.permission === "granted") {
             //subscribeUserToPush();
              //console.log(registration.active);
-             let n = new Notification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+             let n = new Notification("Chat request from Visitor X");
+             console.log(n);
             n.onclick = function(event) {
             console.log("here");
             //event.preventDefault(); // prevent the browser from focusing the Notification's tab

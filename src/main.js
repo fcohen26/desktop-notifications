@@ -1,6 +1,20 @@
 window.addEventListener('load', function () {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/src/sw.js').then(function(registration) {
+      
+    if(registration.installing) {
+
+      console.log('Service worker installing');
+
+    } else if(registration.waiting) {
+
+      console.log('Service worker installed');
+
+    } else if(registration.active) {
+
+      console.log('Service worker active');
+
+    }
       console.log("service worker registration succeeded: ", registration);
       Notification.requestPermission();
       if (window.Notification && Notification.permission !== "granted") {

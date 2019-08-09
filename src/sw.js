@@ -15,7 +15,7 @@
 //   };
 self.addEventListener('install', function(event) {
     console.log("install event retrieved");
-}
+});
 
 //   self.onnotificationclick = function(event) {
 //     console.log('On notification click: ', event.notification.tag);

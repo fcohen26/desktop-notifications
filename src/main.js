@@ -13,7 +13,7 @@ window.addEventListener('load', function () {
       }
       if (window.Notification && Notification.permission === "granted") {
         //subscribeUserToPush();
-        registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+        //registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
         //registration.showNotification("hi");
       }
 

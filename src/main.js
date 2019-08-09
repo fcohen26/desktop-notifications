@@ -40,6 +40,8 @@ function subscribeUserToPush() {
   .then(function(pushSubscription) {
     console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
     return pushSubscription;
+  }, function(error) {
+    console.log("push subscribion failed", error);
   });
 }
   //console.log(Notification.maxActions);

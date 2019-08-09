@@ -13,20 +13,21 @@ window.addEventListener('load', function () {
       }
       if (window.Notification && Notification.permission === "granted") {
         //subscribeUserToPush();
-         //registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-        //  registration.active.addEventListener('notificationclick', function(event) {
-        //   console.log('On notification click: ', event.notification.tag);
-        //   var messageId = event.notification.data;
+         registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+         console.log(registration.active);
+        registration.active.addEventListener('notificationclick', function(event) {
+          console.log('On notification click: ', event.notification.tag);
+          var messageId = event.notification.data;
         
-        //   event.notification.close();
+          event.notification.close();
         
-        //   if (event.action === 'accept-action') {
-        //     console.log("accept clicked");
-        //   }
-        //   else if (event.action === 'reject-action') {
-        //     console.log("reject clicked")
-        //   }
-        // });
+          if (event.action === 'accept-action') {
+            console.log("accept clicked");
+          }
+          else if (event.action === 'reject-action') {
+            console.log("reject clicked")
+          }
+        });
         //registration.showNotification("hi");
       }
 

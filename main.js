@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
 
     button.addEventListener('click', function () {
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/src/sw.js').then(function(registration) {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
           
         if(registration.installing) {
     

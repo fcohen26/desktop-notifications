@@ -50,7 +50,7 @@ window.addEventListener('load', function () {
             //     console.log(notifications[0]);
 
             // })
-            registration.active.addEventListener('notificationclick', function(event) {
+            registration.active.onnotificationclick = function(event) {
               console.log('On notification click: ', event.notification.tag);
               var messageId = event.notification.data;
             

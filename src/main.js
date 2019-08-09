@@ -45,15 +45,15 @@ window.addEventListener('load', function () {
 //   ]
 // });
     if (window.Notification && Notification.permission === "granted") {
-      //self.registration.showNotification("hi", options);
-     	let n = new Notification("Chat request from visitor X");
-      n.onclick = function(event) {
-        console.log("here");
-        //event.preventDefault(); // prevent the browser from focusing the Notification's tab
-        //parent.focus();
-        window.focus();
-        this.close();
-      }
+      self.registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+     	// let n = new Notification("Chat request from visitor X");
+      // n.onclick = function(event) {
+      //   console.log("here");
+      //   //event.preventDefault(); // prevent the browser from focusing the Notification's tab
+      //   //parent.focus();
+      //   window.focus();
+      //   this.close();
+      // }
 
     }
 

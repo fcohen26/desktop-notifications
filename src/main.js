@@ -17,7 +17,10 @@ window.addEventListener('load', function () {
         registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
         registration.getNotifications().then(function(notifications) {
           console.log(notifications);
-        }) 
+        }, function(error) {
+          console.log(error);
+        });
+      }
       //   registration.active.addEventListener('click', function(event) {
       //     console.log('On notification click: ', event.notification.tag);
       //     var messageId = event.notification.data;

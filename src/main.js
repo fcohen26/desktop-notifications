@@ -15,6 +15,7 @@ window.addEventListener('load', function () {
         //subscribeUserToPush();
          //console.log(registration.active);
         registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+        console.log(registration.active);
       }
         registration.active.onnotificationclick = function(event) {
           console.log('On notification click: ', event.notification.tag);

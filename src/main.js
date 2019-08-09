@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
         });
       }
       if (window.Notification && Notification.permission === "granted") {
-        subscribeUserToPush();
+        //subscribeUserToPush();
         registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
         //registration.showNotification("hi");
       }
@@ -46,33 +46,33 @@ function subscribeUserToPush() {
 }
 
 
-function urlBase64ToUint8Array(base64String) {
+// function urlBase64ToUint8Array(base64String) {
 
-  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+//   const padding = '='.repeat((4 - base64String.length % 4) % 4);
 
-  const base64 = (base64String + padding)
+//   const base64 = (base64String + padding)
 
-    .replace(/\-/g, '+')
+//     .replace(/\-/g, '+')
 
-    .replace(/_/g, '/');
-
-
-
-  const rawData = window.atob(base64);
-
-  const outputArray = new Uint8Array(rawData.length);
+//     .replace(/_/g, '/');
 
 
 
-  for (let i = 0; i < rawData.length; ++i) {
+//   const rawData = window.atob(base64);
 
-    outputArray[i] = rawData.charCodeAt(i);
+//   const outputArray = new Uint8Array(rawData.length);
 
-  }
 
-  return outputArray;
 
-}
+//   for (let i = 0; i < rawData.length; ++i) {
+
+//     outputArray[i] = rawData.charCodeAt(i);
+
+//   }
+
+//   return outputArray;
+
+// }
   //console.log(Notification.maxActions);
    // navigator.serviceWorker
    //      .register('index.js')

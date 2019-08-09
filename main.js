@@ -36,6 +36,7 @@ window.addEventListener('load', function () {
              console.log(n);
              n.actions = [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}];
             n.onclick = function(event) {
+              console.log(event);
             console.log("here");
             //event.preventDefault(); // prevent the browser from focusing the Notification's tab
             //parent.focus();

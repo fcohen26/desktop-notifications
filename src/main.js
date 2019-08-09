@@ -12,8 +12,8 @@ window.addEventListener('load', function () {
         });
       }
       if (window.Notification && Notification.permission === "granted") {
-        //registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-        registration.showNotification("hi");
+        registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+        //registration.showNotification("hi");
       }
 
     }, function(error) {

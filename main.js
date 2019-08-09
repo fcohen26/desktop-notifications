@@ -62,7 +62,7 @@ window.addEventListener('load', function () {
               else if (event.action === 'reject-action') {
                 console.log("reject clicked")
               }
-            });
+            };
             console.log(registration.active);
           }
             //registration.showNotification("hi");

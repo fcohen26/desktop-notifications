@@ -23,19 +23,23 @@ self.addEventListener('install', function(event) {
 self.addEventListener('notificationclick', function(event) {
     console.dir("hi notification clicked");
     console.dir(event.action);
-    clients.openWindow('http://www.facebook.com');
-    notification.close();
+    //clients.openWindow('http://www.facebook.com');
+    //notification.close();
     console.log("notification click");
     if (!event.action) {
-        clients.openWindow('www.facebook.com');
+        //clients.openWindow('www.facebook.com');
         console.dir('Notification click');
         return;
     }
     if (event.action === 'accept-action') {
+        console.dir('accept action clicked');
         clients.openWindow('www.google.com');
+        event.notification.close();
     }
     if (event.action === 'reject-action') {
+        console.dir('reject action clicked')
         clients.openWindow('www.facebok.com');
+        event.notification.close();
     }
 });
 

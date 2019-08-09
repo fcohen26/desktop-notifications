@@ -13,8 +13,7 @@ window.addEventListener('load', function () {
       }
       if (window.Notification && Notification.permission === "granted") {
         //subscribeUserToPush();
-         registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-         console.log(registration.active);
+         //console.log(registration.active);
         registration.active.addEventListener('notificationclick', function(event) {
           console.log('On notification click: ', event.notification.tag);
           var messageId = event.notification.data;
@@ -30,6 +29,8 @@ window.addEventListener('load', function () {
         });
         //registration.showNotification("hi");
       }
+      registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+
 
     }, function(error) {
       console.log("service worker registration failed: ", error);

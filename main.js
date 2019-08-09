@@ -42,7 +42,8 @@ window.addEventListener('load', function () {
               reg.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
 
             });
-            navigator.serviceWorker.getRegistration('/sw.js').active.addEventListener('notificationclick', function(event) {
+            navigator.serviceWorker.getRegistration('/sw.js').active.then(function(servWorker) {
+              servWorker.addEventListener('notificationclick', function(event) {
               console.dir("hi notification clicked");
               console.dir(event.action);
               //clients.openWindow('http://www.facebook.com');
@@ -96,7 +97,7 @@ window.addEventListener('load', function () {
             //   }
             // };
             // console.log(registration.active);
-          }
+          });
             //registration.showNotification("hi");
     });
   }

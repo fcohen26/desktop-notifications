@@ -32,7 +32,7 @@ window.addEventListener('load', function () {
           if (window.Notification && Notification.permission === "granted") {
             //subscribeUserToPush();
              //console.log(registration.active);
-            registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+            //registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
             //subscribeUserToPush();
             // registration.getNotifications().then(function(notifications) {
             //   notifications[0].onclick = function(event) {

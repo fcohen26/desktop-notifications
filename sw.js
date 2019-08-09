@@ -1,5 +1,7 @@
 self.addEventListener('install', function(event) {
     console.log('hi from service worker');
+    self.registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+
 })
 // console.log('hi from service worker');
 

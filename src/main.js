@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
   if ('serviceWorker' in navigator) {
-    this.navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    this.navigator.serviceWorker.register('/src/sw.js').then(function(registration) {
       console.log("service worker registration succeeded: ", registration);
     }, function(error) {
       console.log("service worker registration failed: ", error);
@@ -46,11 +46,7 @@ window.addEventListener('load', function () {
 // });
     if (window.Notification && Notification.permission === "granted") {
       //self.registration.showNotification("hi", options);
-     								let n = new Notification("Chat request from visitor X", {
-									"icon": "http://qnimate.com/wp-content/uploads/2014/07/web-notification-api-300x150.jpg", "actions": [{
-										action: "accept-action", title: "Accept"
-									}, { action: "reject-action", title: "Reject" }]
-								});
+     	let n = new Notification("Chat request from visitor X");
       n.onclick = function(event) {
         console.log("here");
         //event.preventDefault(); // prevent the browser from focusing the Notification's tab

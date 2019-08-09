@@ -33,9 +33,22 @@ window.addEventListener('load', function () {
             //subscribeUserToPush();
              //console.log(registration.active);
             registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-            console.log(registration.getNotifications());
             registration.getNotifications().then(function(notifications) {
-              console.log(notifications[0])
+              notifications[0].onclick = function(event) {
+                  console.log("here");
+                  event.preventDefault(); // prevent the browser from focusing the Notification's tab
+                  //parent.focus();
+                  window.focus();
+                  this.close();
+                  if (event.action === 'accept-action') {
+                    console.log("accept clicked");
+                  }
+                  else if (event.action === 'reject-action') {
+                    console.log("reject clicked")
+                  }
+                }
+                console.log(notifications[0]);
+
             })
 
           }

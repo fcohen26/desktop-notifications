@@ -1,42 +1,46 @@
 window.addEventListener('load', function () {
-  if ('serviceWorker' in navigator) {
-    this.navigator.serviceWorker.register('/src/sw.js').then(function(registration) {
-      console.log("service worker registration succeeded: ", registration);
-      Notification.requestPermission();
-      if (window.Notification && Notification.permission !== "granted") {
-        console.log(Notification.permission);
-        Notification.requestPermission(function (status) {
-          if (Notification.permission !== status) {
-            Notification.permission = status;
-          }
-        });
-      }
-      if (window.Notification && Notification.permission === "granted") {
-        //subscribeUserToPush();
-         //console.log(registration.active);
-        registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-      }
-        registration.active.onnotificationclick = function(event) {
-          console.log('On notification click: ', event.notification.tag);
-          var messageId = event.notification.data;
-        
-          event.notification.close();
-        
-          if (event.action === 'accept-action') {
-            console.log("accept clicked");
-          }
-          else if (event.action === 'reject-action') {
-            console.log("reject clicked")
-          }
-        };
-        //registration.showNotification("hi");
 
-    }, function(error) {
-      console.log("service worker registration failed: ", error);
+  var button = document.getElementsByTagName('button')[0];
+    button.addEventListener('click', function () {
+      if ('serviceWorker' in navigator) {
+        this.navigator.serviceWorker.register('/src/sw.js').then(function(registration) {
+          console.log("service worker registration succeeded: ", registration);
+          Notification.requestPermission();
+          if (window.Notification && Notification.permission !== "granted") {
+            console.log(Notification.permission);
+            Notification.requestPermission(function (status) {
+              if (Notification.permission !== status) {
+                Notification.permission = status;
+              }
+            });
+          }
+          if (window.Notification && Notification.permission === "granted") {
+            //subscribeUserToPush();
+             //console.log(registration.active);
+            registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+            registration.active.onnotificationclick = function(event) {
+              console.log('On notification click: ', event.notification.tag);
+              var messageId = event.notification.data;
+            
+              event.notification.close();
+            
+              if (event.action === 'accept-action') {
+                console.log("accept clicked");
+              }
+              else if (event.action === 'reject-action') {
+                console.log("reject clicked")
+              }
+            };
+          }
+            //registration.showNotification("hi");
+    
+        }, function(error) {
+          console.log("service worker registration failed: ", error);
+        });
+      } else {
+        this.console.log("service workers are not supported");
+      }
     });
-  } else {
-    this.console.log("service workers are not supported");
-  }
 });
 
 function subscribeUserToPush() {
@@ -109,8 +113,7 @@ function subscribeUserToPush() {
   //     }
   //   });
   // }
-
-//   var button = document.getElementsByTagName('button')[0];
+  // var button = document.getElementsByTagName('button')[0];
 
 //   button.addEventListener('click', function () {
 //     // If the user agreed to get notified
@@ -168,3 +171,4 @@ function subscribeUserToPush() {
 //     }
 //   });
 // });
+

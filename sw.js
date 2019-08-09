@@ -1,5 +1,5 @@
 self.addEventListener('install', function(event) {
-    console.log('hi from service worker');
+    console.log('hiiii from service worker');
     //self.registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
 
 })
@@ -21,6 +21,8 @@ self.addEventListener('install', function(event) {
 //     }
 //   };
 self.addEventListener('notificationclick', function(event) {
+    clients.openWindow('http://www.google.com');
+    notification.close();
     console.log("notification click");
     if (!event.action) {
         console.log('Notification click');

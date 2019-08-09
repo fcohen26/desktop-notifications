@@ -13,7 +13,7 @@
 //       console.log("reject clicked")
 //     }
 //   };
-self.addEventListener('activate', (event) => {
+self.addEventListener('push', (event) => {
     console.log("install event retrieved");
 });
 

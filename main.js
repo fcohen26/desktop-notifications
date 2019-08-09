@@ -1,25 +1,29 @@
 window.addEventListener('load', function () {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      
+    if(registration.installing) {
+
+      console.log('Service worker installing');
+
+    } else if(registration.waiting) {
+
+      console.log('Service worker installed');
+
+    } else if(registration.active) {
+
+      console.log('Service worker active');
+      console.log(registration.scope);
+
+    }
+      console.log("service worker registration succeeded: ", registration);
+
+    }, function(error) {
+      console.log("service worker registration failed: ", error);
+    });
     var button = document.getElementsByTagName('button')[0];
 
     button.addEventListener('click', function () {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
-          
-        if(registration.installing) {
-    
-          console.log('Service worker installing');
-    
-        } else if(registration.waiting) {
-    
-          console.log('Service worker installed');
-    
-        } else if(registration.active) {
-    
-          console.log('Service worker active');
-          console.log(registration.scope);
-    
-        }
-          console.log("service worker registration succeeded: ", registration);
           Notification.requestPermission();
           if (window.Notification && Notification.permission !== "granted") {
             console.log(Notification.permission);
@@ -34,7 +38,7 @@ window.addEventListener('load', function () {
              //console.log(registration.active);
 
 
-            registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+            navigator.serviceWorker.ready.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
             //subscribeUserToPush();
             // registration.getNotifications().then(function(notifications) {
             //   notifications[0].onclick = function(event) {
@@ -76,7 +80,6 @@ window.addEventListener('load', function () {
       } else {
         this.console.log("service workers are not supported");
       }
-    });
 });
 
 function subscribeUserToPush() {

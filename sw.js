@@ -21,12 +21,13 @@ self.addEventListener('install', function(event) {
 //     }
 //   };
 self.addEventListener('notificationclick', function(event) {
+    console.dir("hi notification clicked");
     //clients.openWindow('http://www.facebook.com');
     notification.close();
     console.log("notification click");
     if (!event.action) {
-        //clients.openWindow('www.facebook.com');
-        console.log('Notification click');
+        clients.openWindow('www.facebook.com');
+        console.dir('Notification click');
         return;
     }
     switch (event.action) {

@@ -99,9 +99,11 @@ window.addEventListener('load', function () {
             // console.log(registration.active);
           });
             //registration.showNotification("hi");
-    });
-  }
+        };
 });
+}
+});
+
 function subscribeUserToPush() {
   return navigator.serviceWorker.register('/sw.js')
   .then(function(registration) {

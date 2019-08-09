@@ -21,6 +21,7 @@ window.addEventListener('load', function () {
   } else {
     this.console.log("service workers are not supported");
   }
+}
   //console.log(Notification.maxActions);
    // navigator.serviceWorker
    //      .register('index.js')

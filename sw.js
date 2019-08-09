@@ -1,3 +1,5 @@
+console.log('hi from service worker');
+
 //self.registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
 
 // self.onnotificationclick = function(event) {
@@ -13,8 +15,20 @@
 //       console.log("reject clicked")
 //     }
 //   };
-self.addEventListener('push', (event) => {
-    console.log("install event retrieved");
+self.addEventListener('notificationclick', function(event) {
+    console.log("notification click");
+    if (!event.action) {
+        console.log('Notification click');
+        return;
+    }
+    switch (event.action) {
+        case 'accept-action':
+            console.log("accept action clicked");
+            break;
+        case 'reject-action':
+            console.log('reject action clicked');
+            break;
+    }
 });
 
 //   self.onnotificationclick = function(event) {

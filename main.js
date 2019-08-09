@@ -33,6 +33,7 @@ window.addEventListener('load', function () {
             //subscribeUserToPush();
              //console.log(registration.active);
             registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+            //subscribeUserToPush();
             // registration.getNotifications().then(function(notifications) {
             //   notifications[0].onclick = function(event) {
             //       console.log("here");
@@ -50,20 +51,20 @@ window.addEventListener('load', function () {
             //     console.log(notifications[0]);
 
             // })
-            registration.active.onnnnnotificationclick = function(event) {
-              console.log('On notification click: ', event.notification.tag);
-              var messageId = event.notification.data;
+            // registration.active.onnotificationclick = function(event) {
+            //   console.log('On notification click: ', event.notification.tag);
+            //   var messageId = event.notification.data;
             
-              event.notification.close();
+            //   event.notification.close();
             
-              if (event.action === 'accept-action') {
-                console.log("accept clicked");
-              }
-              else if (event.action === 'reject-action') {
-                console.log("reject clicked")
-              }
-            };
-            console.log(registration.active);
+            //   if (event.action === 'accept-action') {
+            //     console.log("accept clicked");
+            //   }
+            //   else if (event.action === 'reject-action') {
+            //     console.log("reject clicked")
+            //   }
+            // };
+            // console.log(registration.active);
           }
             //registration.showNotification("hi");
     
@@ -77,7 +78,7 @@ window.addEventListener('load', function () {
 });
 
 function subscribeUserToPush() {
-  return navigator.serviceWorker.register('/src/sw.js')
+  return navigator.serviceWorker.register('/sw.js')
   .then(function(registration) {
     const subscribeOptions = {
       userVisibleOnly: true,
@@ -97,33 +98,33 @@ function subscribeUserToPush() {
 }
 
 
-// function urlBase64ToUint8Array(base64String) {
+function urlBase64ToUint8Array(base64String) {
 
-//   const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
 
-//   const base64 = (base64String + padding)
+  const base64 = (base64String + padding)
 
-//     .replace(/\-/g, '+')
+    .replace(/\-/g, '+')
 
-//     .replace(/_/g, '/');
-
-
-
-//   const rawData = window.atob(base64);
-
-//   const outputArray = new Uint8Array(rawData.length);
+    .replace(/_/g, '/');
 
 
 
-//   for (let i = 0; i < rawData.length; ++i) {
+  const rawData = window.atob(base64);
 
-//     outputArray[i] = rawData.charCodeAt(i);
+  const outputArray = new Uint8Array(rawData.length);
 
-//   }
 
-//   return outputArray;
 
-// }
+  for (let i = 0; i < rawData.length; ++i) {
+
+    outputArray[i] = rawData.charCodeAt(i);
+
+  }
+
+  return outputArray;
+
+}
   //console.log(Notification.maxActions);
    // navigator.serviceWorker
    //      .register('index.js')

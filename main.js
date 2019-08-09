@@ -38,7 +38,10 @@ window.addEventListener('load', function () {
              //console.log(registration.active);
 
 
-            navigator.serviceWorker.ready.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+            navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
+              reg.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+
+            });
             //subscribeUserToPush();
             // registration.getNotifications().then(function(notifications) {
             //   notifications[0].onclick = function(event) {
@@ -73,15 +76,9 @@ window.addEventListener('load', function () {
             // console.log(registration.active);
           }
             //registration.showNotification("hi");
-    
-        }, function(error) {
-          console.log("service worker registration failed: ", error);
-        });
-      } else {
-        this.console.log("service workers are not supported");
-      }
+    });
+  }
 });
-
 function subscribeUserToPush() {
   return navigator.serviceWorker.register('/sw.js')
   .then(function(registration) {

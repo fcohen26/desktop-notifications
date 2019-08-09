@@ -14,7 +14,7 @@ window.addEventListener('load', function () {
       if (window.Notification && Notification.permission === "granted") {
         //subscribeUserToPush();
          registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-        registration.active.onnotificationclick = function(event) {
+         registration.active.addEventListener('notificationclick', function(event) {
           console.log('On notification click: ', event.notification.tag);
           var messageId = event.notification.data;
         
@@ -26,7 +26,7 @@ window.addEventListener('load', function () {
           else if (event.action === 'reject-action') {
             console.log("reject clicked")
           }
-        };
+        });
         //registration.showNotification("hi");
       }
 

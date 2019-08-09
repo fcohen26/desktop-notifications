@@ -32,6 +32,16 @@ window.addEventListener('load', function () {
           if (window.Notification && Notification.permission === "granted") {
             //subscribeUserToPush();
              //console.log(registration.active);
+             let n = new Notification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+            n.onclick = function(event) {
+            console.log("here");
+            //event.preventDefault(); // prevent the browser from focusing the Notification's tab
+            //parent.focus();
+            window.focus();
+            this.close();
+          }
+
+
             //registration.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
             //subscribeUserToPush();
             // registration.getNotifications().then(function(notifications) {

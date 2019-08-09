@@ -12,6 +12,7 @@ window.addEventListener('load', function () {
         });
       }
       if (window.Notification && Notification.permission === "granted") {
+        subscribeUserToPush();
         registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
         //registration.showNotification("hi");
       }
@@ -23,6 +24,24 @@ window.addEventListener('load', function () {
     this.console.log("service workers are not supported");
   }
 });
+
+function subscribeUserToPush() {
+  return navigator.serviceWorker.register('/src/sw.js')
+  .then(function(registration) {
+    const subscribeOptions = {
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(
+        'BIYPd4TWeDpWsydk2tWaMVvYRckTuBybktZwRU_AErdvbQBhfd6ESDg2C553K70VJgP1ZR1voR3UEsUlMHAQej8'
+      )
+    };
+
+    return registration.pushManager.subscribe(subscribeOptions);
+  })
+  .then(function(pushSubscription) {
+    console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
+    return pushSubscription;
+  });
+}
   //console.log(Notification.maxActions);
    // navigator.serviceWorker
    //      .register('index.js')

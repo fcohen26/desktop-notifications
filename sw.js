@@ -1,4 +1,7 @@
-console.log('hi from service worker');
+self.addEventListener('activate', function(event) {
+    console.log('hi from service worker');
+})
+// console.log('hi from service worker');
 
 //self.registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
 

@@ -21,7 +21,8 @@ self.addEventListener('install', function(event) {
 //     }
 //   };
 self.addEventListener('notificationclick', function(event) {
-    console.dir("NOTIFICATION CLICKED --SELF:", self);
+    console.dir("NOTIFICATION CLICKED --SELF:")
+    console.dir(self);
     console.dir("hi notification clicked");
     console.dir(event.action);
     //clients.openWindow('http://www.facebook.com');

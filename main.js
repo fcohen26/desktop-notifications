@@ -43,7 +43,7 @@ window.addEventListener('load', function () {
 
             });
             navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-              reg.self.addEventListener('notificationclick', function(event) {
+              reg.addEventListener('notificationclick', function(event) {
               console.dir("NOTIFICATION CLICKED --SELF:")
               console.dir(self);
               console.dir("hi notification clicked");

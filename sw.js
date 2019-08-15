@@ -30,9 +30,9 @@ self.addEventListener('notificationclick', function(event) {
     //clients.openWindow('http://www.facebook.com');
     //notification.close();
     parent.focus();
-    window.focus();
-    window.open().close();
-    this.close();
+    //window.focus();
+    //window.open().close();
+    //this.close();
     console.log("notification click");
     if (!event.action) {
         let win = event.returnValue;

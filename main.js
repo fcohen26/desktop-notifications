@@ -42,32 +42,32 @@ window.addEventListener('load', function () {
               reg.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
 
             });
-            navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-              reg.addEventListener('notificationclick', function(event) {
-              console.dir("NOTIFICATION CLICKED --SELF:")
-              console.dir(self);
-              console.dir("hi notification clicked");
-              console.dir(event.action);
-              //clients.openWindow('http://www.facebook.com');
-              //notification.close();
-              console.log("notification click");
-              if (!event.action) {
-                  //clients.openWindow('www.facebook.com');
-                  console.dir('Notification click');
-                  return;
-              }
-              if (event.action === 'accept-action') {
-                  console.dir('accept action clicked');
-                  clients.openWindow("https://www.google.com");
-                  event.notification.close();
-              }
-              if (event.action === 'reject-action') {
-                  console.dir('reject action clicked')
-                  clients.openWindow('https://www.facebook.com');
-                  event.notification.close();
-              }
-          });
-        });
+        //     navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
+        //       reg.addEventListener('notificationclick', function(event) {
+        //       console.dir("NOTIFICATION CLICKED --SELF:")
+        //       console.dir(self);
+        //       console.dir("hi notification clicked");
+        //       console.dir(event.action);
+        //       //clients.openWindow('http://www.facebook.com');
+        //       //notification.close();
+        //       console.log("notification click");
+        //       if (!event.action) {
+        //           //clients.openWindow('www.facebook.com');
+        //           console.dir('Notification click');
+        //           return;
+        //       }
+        //       if (event.action === 'accept-action') {
+        //           console.dir('accept action clicked');
+        //           clients.openWindow("https://www.google.com");
+        //           event.notification.close();
+        //       }
+        //       if (event.action === 'reject-action') {
+        //           console.dir('reject action clicked')
+        //           clients.openWindow('https://www.facebook.com');
+        //           event.notification.close();
+        //       }
+        //   });
+        // });
             //subscribeUserToPush();
             // registration.getNotifications().then(function(notifications) {
             //   notifications[0].onclick = function(event) {

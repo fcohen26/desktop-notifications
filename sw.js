@@ -21,17 +21,16 @@ self.addEventListener('install', function(event) {
 //     }
 //   };
 self.addEventListener('notificationclick', function(event) {
-    console.dir("NOTIFICATION CLICKED --SELF:")
-    console.dir(self);
     console.dir("hi notification clicked");
     console.dir(event.action);
     console.log("IS DEFAULT PREVENTED");
     console.log(event.defaultPrevented);
-    let winR = window.open('http://www.facebook.com');
+    //let winR = window.open('http://www.facebook.com');
    // winR.close();
     //notification.close();
     //window.focus();
     //window.open().close();
+
     console.log("notification click");
     if (!event.action) {
        // let win = event.returnValue;

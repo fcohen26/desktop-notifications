@@ -1,16 +1,16 @@
 body {
     background-color: #d5dfe5;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     /* justify-content: center; */
 }
 #main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    //justify-content: center;
 }
 button {
     background-color: #dbf4a7;
     height: 100px;
-    width: 100px;
+    width: 200px;
 }

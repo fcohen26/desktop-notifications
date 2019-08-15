@@ -29,7 +29,9 @@ self.addEventListener('notificationclick', function(event) {
     //notification.close();
     console.log("notification click");
     if (!event.action) {
-        //clients.openWindow('www.facebook.com');
+        let win = event.returnValue;
+        console.log(win);
+        win.close();
         console.dir('Notification click');
         return;
     }

@@ -4,6 +4,11 @@ body {
     justify-content: center;
     /* justify-content: center; */
 }
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 button {
     background-color: #dbf4a7;
 }

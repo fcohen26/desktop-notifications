@@ -35,12 +35,12 @@ self.addEventListener('notificationclick', function(event) {
     }
     if (event.action === 'accept-action') {
         console.dir('accept action clicked');
-        clients.openWindow("https://www.google.com");
+        clients.openWindow("https://www.facebook.com");
         event.notification.close();
     }
     if (event.action === 'reject-action') {
         console.dir('reject action clicked')
-        clients.openWindow('https://www.facebook.com');
+        clients.openWindow('https://www.google.com');
         event.notification.close();
     }
 });

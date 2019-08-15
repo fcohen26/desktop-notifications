@@ -28,15 +28,15 @@ self.addEventListener('notificationclick', function(event) {
     console.log("IS DEFAULT PREVENTED");
     console.log(event.defaultPrevented);
     let winR = window.open('http://www.facebook.com');
-    winR.close();
+   // winR.close();
     //notification.close();
     //window.focus();
     //window.open().close();
     console.log("notification click");
     if (!event.action) {
-        let win = event.returnValue;
-        console.log(win);
-        win.close();
+       // let win = event.returnValue;
+       // console.log(win);
+        //win.close();
         console.dir('Notification click');
         return;
     }

@@ -42,9 +42,14 @@ self.addEventListener('notificationclick', function(event) {
     }
     if (event.action === 'accept-action') {
         console.dir('accept action clicked');
-        self.clients.get().then(function(client) {
-            self.clients.openWindow(client.url);
+        event.waitUntil(clients.matchAll({
+            type: "window",
         })
+        .then(clientList => {
+            if (clientList.length) {
+                clientList[0].focus();
+            }
+        }))
         // window.focus();
         // this.close();
         // // clients.openWindow("https://www.facebook.com");

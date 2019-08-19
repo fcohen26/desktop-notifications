@@ -42,13 +42,15 @@ window.addEventListener('load', function () {
               console.log("here");
               //event.preventDefault(); // prevent the browser from focusing the Notification's tab
               //parent.focus();
+              onClick();
+
               window.focus();
               this.close();
             }
       
           }
 
-          
+
           // if (window.Notification && Notification.permission === "granted") {
           //   //subscribeUserToPush();
           //    //console.log(registration.active);
@@ -172,6 +174,9 @@ function urlBase64ToUint8Array(base64String) {
 
   return outputArray;
 
+}
+function onClick() {
+  window.focus();
 }
   //console.log(Notification.maxActions);
    // navigator.serviceWorker

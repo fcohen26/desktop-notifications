@@ -30,8 +30,9 @@ self.addEventListener('notificationclick', function(event) {
     //notification.close();
     //window.focus();
     //window.open().close();
+    event.preventDefault();
+    // parent.focus();
 
-    console.log("notification click");
     if (!event.action) {
        // let win = event.returnValue;
        // console.log(win);
@@ -41,12 +42,14 @@ self.addEventListener('notificationclick', function(event) {
     }
     if (event.action === 'accept-action') {
         console.dir('accept action clicked');
-        clients.openWindow("https://www.facebook.com");
+        window.focus();
+        this.close();
+        // clients.openWindow("https://www.facebook.com");
         event.notification.close();
     }
     if (event.action === 'reject-action') {
         console.dir('reject action clicked')
-        clients.openWindow('https://www.google.com');
+        // clients.openWindow('https://www.google.com');
         event.notification.close();
     }
 });

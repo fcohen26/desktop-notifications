@@ -33,15 +33,19 @@ window.addEventListener('load', function () {
               }
             });
           }
-          if (window.Notification && Notification.permission === "granted") {
-            //subscribeUserToPush();
-             //console.log(registration.active);
+          // if (window.Notification && Notification.permission === "granted") {
+          //   //subscribeUserToPush();
+          //    //console.log(registration.active);
 
 
-            navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-              reg.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+          //   navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
+          //     reg.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
 
-            });
+          //   });
+
+
+
+          
         //     navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
         //       reg.addEventListener('notificationclick', function(event) {
         //       console.dir("NOTIFICATION CLICKED --SELF:")
@@ -100,7 +104,7 @@ window.addEventListener('load', function () {
             //   }
             // };
             // console.log(registration.active);
-          }
+     //     }
             //registration.showNotification("hi");
     });
   }
@@ -189,18 +193,18 @@ function urlBase64ToUint8Array(base64String) {
 // //     }
 // //   ]
 // // });
-//     if (window.Notification && Notification.permission === "granted") {
-//       self.registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-//      	// let n = new Notification("Chat request from visitor X");
-//       // n.onclick = function(event) {
-//       //   console.log("here");
-//       //   //event.preventDefault(); // prevent the browser from focusing the Notification's tab
-//       //   //parent.focus();
-//       //   window.focus();
-//       //   this.close();
-//       // }
+    if (window.Notification && Notification.permission === "granted") {
+      // self.registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+     	let n = new Notification("Chat request from visitor X");
+      n.onclick = function(event) {
+        console.log("here");
+        //event.preventDefault(); // prevent the browser from focusing the Notification's tab
+        //parent.focus();
+        window.focus();
+        this.close();
+      }
 
-//     }
+    }
 
 //     // If the user hasn't told if he wants to be notified or not
 //     // Note: because of Chrome, we are not sure the permission property

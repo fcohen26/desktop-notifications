@@ -33,6 +33,22 @@ window.addEventListener('load', function () {
               }
             });
           }
+
+
+          if (window.Notification && Notification.permission === "granted") {
+            // self.registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+             let n = new Notification("Chat request from visitor X");
+            n.onclick = function(event) {
+              console.log("here");
+              //event.preventDefault(); // prevent the browser from focusing the Notification's tab
+              //parent.focus();
+              window.focus();
+              this.close();
+            }
+      
+          }
+
+          
           // if (window.Notification && Notification.permission === "granted") {
           //   //subscribeUserToPush();
           //    //console.log(registration.active);
@@ -45,7 +61,7 @@ window.addEventListener('load', function () {
 
 
 
-          
+
         //     navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
         //       reg.addEventListener('notificationclick', function(event) {
         //       console.dir("NOTIFICATION CLICKED --SELF:")
@@ -193,18 +209,6 @@ function urlBase64ToUint8Array(base64String) {
 // //     }
 // //   ]
 // // });
-    if (window.Notification && Notification.permission === "granted") {
-      // self.registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-     	let n = new Notification("Chat request from visitor X");
-      n.onclick = function(event) {
-        console.log("here");
-        //event.preventDefault(); // prevent the browser from focusing the Notification's tab
-        //parent.focus();
-        window.focus();
-        this.close();
-      }
-
-    }
 
 //     // If the user hasn't told if he wants to be notified or not
 //     // Note: because of Chrome, we are not sure the permission property

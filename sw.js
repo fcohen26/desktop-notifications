@@ -42,10 +42,13 @@ self.addEventListener('notificationclick', function(event) {
     }
     if (event.action === 'accept-action') {
         console.dir('accept action clicked');
-        window.focus();
-        this.close();
-        // clients.openWindow("https://www.facebook.com");
-        event.notification.close();
+        self.clients.get().then(function(client) {
+            self.clients.openWindow(client.url);
+        })
+        // window.focus();
+        // this.close();
+        // // clients.openWindow("https://www.facebook.com");
+        // event.notification.close();
     }
     if (event.action === 'reject-action') {
         console.dir('reject action clicked')

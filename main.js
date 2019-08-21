@@ -37,7 +37,9 @@ window.addEventListener('load', function () {
 
           if (window.Notification && Notification.permission === "granted") {
             //service-worker method:
-            navigator.serviceWorker.ready.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+            navigator.serviceWorker.getRegistration('/sw.js').then(function(registration) {
+              registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
+            });
 
             //non service-worker method:
             //  let n = new Notification("Chat request from visitor X");

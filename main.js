@@ -36,94 +36,22 @@ window.addEventListener('load', function () {
 
 
           if (window.Notification && Notification.permission === "granted") {
-            // self.registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-             let n = new Notification("Chat request from visitor X");
-            n.onclick = function(event) {
-              console.log("here");
-              //event.preventDefault(); // prevent the browser from focusing the Notification's tab
-              //parent.focus();
-              onClick();
+            //service-worker method:
+            self.registration.showNotification("hi", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
 
-              window.focus();
-              this.close();
-            }
+            //non service-worker method:
+            //  let n = new Notification("Chat request from visitor X");
+            // n.onclick = function(event) {
+            //   console.log("here");
+            //   //event.preventDefault(); // prevent the browser from focusing the Notification's tab
+            //   //parent.focus();
+            //   onClick();
+
+            //   window.focus();
+            //   this.close();
+            // }
       
           }
-
-
-          // if (window.Notification && Notification.permission === "granted") {
-          //   //subscribeUserToPush();
-          //    //console.log(registration.active);
-
-
-          //   navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-          //     reg.showNotification("Chat request from Visitor X", {"actions": [{action: "accept-action", title: "Accept"}, {action: "reject-action", title: "Reject"}]});
-
-          //   });
-
-
-
-
-        //     navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-        //       reg.addEventListener('notificationclick', function(event) {
-        //       console.dir("NOTIFICATION CLICKED --SELF:")
-        //       console.dir(self);
-        //       console.dir("hi notification clicked");
-        //       console.dir(event.action);
-        //       //clients.openWindow('http://www.facebook.com');
-        //       //notification.close();
-        //       console.log("notification click");
-        //       if (!event.action) {
-        //           //clients.openWindow('www.facebook.com');
-        //           console.dir('Notification click');
-        //           return;
-        //       }
-        //       if (event.action === 'accept-action') {
-        //           console.dir('accept action clicked');
-        //           clients.openWindow("https://www.google.com");
-        //           event.notification.close();
-        //       }
-        //       if (event.action === 'reject-action') {
-        //           console.dir('reject action clicked')
-        //           clients.openWindow('https://www.facebook.com');
-        //           event.notification.close();
-        //       }
-        //   });
-        // });
-            //subscribeUserToPush();
-            // registration.getNotifications().then(function(notifications) {
-            //   notifications[0].onclick = function(event) {
-            //       console.log("here");
-            //       event.preventDefault(); // prevent the browser from focusing the Notification's tab
-            //       //parent.focus();
-            //       window.focus();
-            //       this.close();
-            //       if (event.action === 'accept-action') {
-            //         console.log("accept clicked");
-            //       }
-            //       else if (event.action === 'reject-action') {
-            //         console.log("reject clicked")
-            //       }
-            //     }
-            //     console.log(notifications[0]);
-
-            // })
-            // registration.active.onnotificationclick = function(event) {
-            //   console.log('On notification click: ', event.notification.tag);
-            //   var messageId = event.notification.data;
-            
-            //   event.notification.close();
-            
-            //   if (event.action === 'accept-action') {
-            //     console.log("accept clicked");
-            //   }
-            //   else if (event.action === 'reject-action') {
-            //     console.log("reject clicked")
-            //   }
-            // };
-            // console.log(registration.active);
-     //     }
-            //registration.showNotification("hi");
     });
   }
 });

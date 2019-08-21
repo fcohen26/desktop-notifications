@@ -33,6 +33,15 @@ self.addEventListener('notificationclick', function(event) {
     event.preventDefault();
     // parent.focus();
 
+    event.waitUntil(clients.matchAll({
+        type: "window",
+    })
+    .then(clientList => {
+        if (clientList.length) {
+            clientList[0].focus();
+        }
+    }))
+
     if (!event.action) {
        // let win = event.returnValue;
        // console.log(win);
@@ -42,21 +51,16 @@ self.addEventListener('notificationclick', function(event) {
     }
     if (event.action === 'accept-action') {
         console.dir('accept action clicked');
-        event.waitUntil(clients.matchAll({
-            type: "window",
-        })
-        .then(clientList => {
-            if (clientList.length) {
-                clientList[0].focus();
-            }
-        }))
+        alert("Chat accepted");
         // window.focus();
         // this.close();
         // // clients.openWindow("https://www.facebook.com");
         // event.notification.close();
     }
     if (event.action === 'reject-action') {
-        console.dir('reject action clicked')
+        console.dir('reject action clicked');
+        alert("Chat rejectd");
+
         // clients.openWindow('https://www.google.com');
         event.notification.close();
     }

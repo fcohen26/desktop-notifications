@@ -1,8 +1,7 @@
 body {
-    background-color: #d5dfe5;
+    background-color: #A5A299;
     display: flex;
     justify-content: center;
-    /* justify-content: center; */
 }
 #main {
     display: flex;
@@ -11,7 +10,7 @@ body {
     /* align-content: center; */
 }
 button {
-    background-color: #dbf4a7;
+    background-color: #B4B8C5;
     height: 100px;
     width: 200px;
 }
